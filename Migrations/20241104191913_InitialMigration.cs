@@ -3,7 +3,7 @@ using MySql.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace Service.Users.Migrations
+namespace connect.Users.Migrations
 {
     /// <inheritdoc />
     public partial class InitialMigration : Migration

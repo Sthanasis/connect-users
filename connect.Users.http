@@ -1,0 +1,6 @@
+@connect.Users_HostAddress = http://localhost:5014
+
+GET {{connect.Users_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
