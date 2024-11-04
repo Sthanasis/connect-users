@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace Service.Users.Models;
+namespace connect.Users.Models;
 public class UserModel
 {
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

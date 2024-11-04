@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using Service.Users.Db;
-using Service.Users.Models;
+using connect.Users.Db;
+using connect.Users.Models;
 
-namespace Service.Users.Services;
+namespace connect.Users.Services;
 
 public class UserService
 {

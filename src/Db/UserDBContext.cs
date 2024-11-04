@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using Service.Users.Models;
-namespace Service.Users.Db;
+using connect.Users.Models;
+namespace connect.Users.Db;
 public class ApplicationDbContext : DbContext
 {
     public ApplicationDbContext()

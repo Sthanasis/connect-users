@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using Service.Users.Models;
-using Service.Users.Services;
+using connect.Users.Models;
+using connect.Users.Services;
 
-namespace Service.Users.Controllers;
+namespace connect.Users.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

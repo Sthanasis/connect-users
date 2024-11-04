@@ -1,7 +1,7 @@
 
 using Microsoft.EntityFrameworkCore;
-using Service.Users.Db;
-using Service.Users.Services;
+using connect.Users.Db;
+using connect.Users.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
