@@ -1,5 +1,9 @@
-var builder = WebApplication.CreateBuilder(args);
 
+using Microsoft.EntityFrameworkCore;
+using Service.Users.Db;
+using Service.Users.Services;
+
+var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSwaggerGen();
@@ -14,7 +18,8 @@ builder.Services.AddCors(options =>
             WithOrigins("http://localhost:3000");
     });
 });
-
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddSingleton<UserService>();
 builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
 
 var app = builder.Build();
@@ -31,5 +36,8 @@ app.UseDefaultFiles();
 app.UseStaticFiles();
 
 app.UseCors("CORSPolicy");
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

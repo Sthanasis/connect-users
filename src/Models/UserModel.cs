@@ -1,17 +1,16 @@
-using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
-public class ApplicationDbContext : DbContext
+namespace Service.Users.Models;
+public class UserModel
 {
-    public DbSet<User> Users { get; set; }
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseMySQL("Server=localhost,3306;Database=app;User=root;Password=test;");
-
-    }
-}
-public class User
-{
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Key, Column(Order = 0)]
+    [JsonPropertyName("id")]
     public int Id { get; set; }
+    [JsonPropertyName("name")]
     public required string Name { get; set; }
+    [JsonPropertyName("email")]
     public required string Email { get; set; }
 }

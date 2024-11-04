@@ -6,11 +6,14 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace Service.Users.Migrations
 {
     /// <inheritdoc />
-    public partial class UserTable : Migration
+    public partial class InitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.AlterDatabase()
+                .Annotation("MySQL:Charset", "utf8mb4");
+
             migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
