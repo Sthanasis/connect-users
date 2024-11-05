@@ -17,7 +17,7 @@ public class AppErrorUtility : ControllerBase
     {
         return NotFound(new AppResult()
         {
-            Error = new ErrorViewModel { Message = message, status = 404 },
+            Error = new ErrorViewModel { Message = message, Status = 404 },
         });
     }
 }
