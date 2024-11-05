@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using connect.Users.Models;
 using connect.Users.Services;
+using connect.Users.Utilities;
 
 namespace connect.Users.Controllers;
 
@@ -10,18 +11,34 @@ public class UsersController : ControllerBase
 {
     private readonly UserService _userService;
     public UsersController(UserService userService) => _userService = userService;
-
+    private readonly AppErrorUtility appError = new();
     [HttpGet]
     public async Task<IActionResult> Get()
     {
-        var users = await _userService.GetAllAsync();
-        return Ok(users);
+        try
+        {
+            var users = await _userService.GetAllAsync();
+            return Ok(users);
+        }
+        catch (Exception e)
+        {
+            return appError.SendServerError(e.Message);
+        }
     }
 
     [HttpPost]
     public async Task<IActionResult> Post(UserModel user)
     {
-        await _userService.CreateAsync(user);
-        return NoContent();
+        try
+        {
+            await _userService.CreateAsync(user);
+            return NoContent();
+
+        }
+        catch (Exception e)
+        {
+            return appError.SendServerError(e.Message);
+
+        }
     }
 }
