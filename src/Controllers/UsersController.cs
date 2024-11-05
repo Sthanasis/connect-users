@@ -13,12 +13,13 @@ public class UsersController : ControllerBase
     public UsersController(UserService userService) => _userService = userService;
     private readonly AppErrorUtility appError = new();
     [HttpGet]
-    public async Task<IActionResult> Get()
+    public async Task<ActionResult<AppResult<List<UserModel>>>> Get()
     {
         try
         {
             var users = await _userService.GetAllAsync();
-            return Ok(users);
+            var result = new AppResult<List<UserModel>> { Data = users };
+            return Ok(result);
         }
         catch (Exception e)
         {
@@ -32,7 +33,7 @@ public class UsersController : ControllerBase
         try
         {
             await _userService.CreateAsync(user);
-            return NoContent();
+            return CreatedAtAction(nameof(Get), new { id = user.Id }, user);
 
         }
         catch (Exception e)
