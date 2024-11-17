@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using connect.Users.Models;
 using connect.Users.Services;
-using connect.Users.Utilities;
+using connect_utilities.Models;
+using connect_utilities.Utilities;
 
 namespace connect.Users.Controllers;
 

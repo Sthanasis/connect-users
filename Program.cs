@@ -1,6 +1,5 @@
 
 using Microsoft.EntityFrameworkCore;
-using connect.Users.Db;
 using connect.Users.Services;
 
 var builder = WebApplication.CreateBuilder(args);
